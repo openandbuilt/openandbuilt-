@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storefront &mdash; Websites for Local Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #1F4D3D;
+    --green-dark: #163B2E;
+    --gold: #C9A227;
+    --gold-light: #E4C25C;
+    --cream: #F2ECDA;
+    --brick: #A8412F;
+    --ink: #2B2620;
+    --sage: #B9C9B5;
+    --display: 'Bevan', serif;
+    --body: 'Archivo', sans-serif;
+    --mono: 'Archivo Narrow', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.5;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 28px;
+    max-width:1080px;margin:0 auto;
+  }
+  .brand{
+    font-family:var(--display);
+    font-size:1.3rem;
+    color:var(--green);
+    letter-spacing:0.5px;
+  }
+  .brand span{color:var(--brick);}
+  nav .cta-small{
+    background:var(--green);
+    color:var(--cream);
+    padding:10px 20px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.9rem;
+    text-decoration:none;
+    border:2px solid var(--green);
+    transition:background .15s, color .15s;
+  }
+  nav .cta-small:hover{background:transparent;color:var(--green);}
+
+  /* ---------- HERO / SHOP WINDOW ---------- */
+  .hero{
+    position:relative;
+    background:var(--green);
+    overflow:hidden;
+    padding-bottom:0;
+  }
+  .awning{
+    height:26px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--cream) 0px, var(--cream) 36px,
+      var(--brick) 36px, var(--brick) 72px
+    );
+    border-bottom:4px solid var(--ink);
+  }
+  .awning.bottom{
+    border-bottom:none;
+    border-top:4px solid var(--ink);
+  }
+  .hero-inner{
+    padding:72px 28px 64px;
+    max-width:1080px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-style:italic;
+    color:var(--gold-light);
+    font-size:1rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    line-height:1.08;
+    color:var(--cream);
+    text-shadow: 2px 2px 0 var(--ink);
+    margin-bottom:24px;
+  }
+  .hero h1 .gold{
+    background: linear-gradient(180deg, var(--gold-light) 10%, var(--gold) 55%, #8a6c12 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow: 2px 2px 0 var(--ink), 0 0 1px rgba(0,0,0,.3);
+  }
+  .hero p.sub{
+    color:var(--sage);
+    font-size:1.15rem;
+    max-width:560px;
+    margin:0 auto 36px;
+  }
+  .hero-ctas{
+    display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+    border:none;
+    padding:16px 32px;
+    border-radius:3px;
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 4px 0 #8a6c12;
+    transition:transform .12s, box-shadow .12s;
+  }
+  .btn-primary:hover{transform:translateY(2px);box-shadow:0 2px 0 #8a6c12;}
+  .btn-ghost{
+    background:transparent;
+    color:var(--cream);
+    border:2px solid var(--sage);
+    padding:14px 28px;
+    border-radius:3px;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-block;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{
+    background:var(--cream);
+    border-bottom:1px solid var(--sage);
+    padding:22px 28px;
+  }
+  .trust-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;gap:40px;justify-content:center;flex-wrap:wrap;
+    font-family:var(--mono);
+    font-style:italic;
+    font-size:1rem;
+    color:var(--green-dark);
+    text-align:center;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:72px 28px;}
+  .section-head{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 48px;
+  }
+  .section-head .tag{
+    font-family:var(--mono);
+    font-style:italic;
+    color:var(--brick);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:0.9rem;
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-family:var(--display);
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    color:var(--green);
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    max-width:980px;
+    margin:0 auto;
+    counter-reset: step;
+  }
+  .step{
+    padding:0 28px;
+    position:relative;
+    text-align:center;
+  }
+  .step:not(:last-child)::after{
+    content:'';
+    position:absolute;
+    top:34px;
+    right:-2px;
+    width:50px;
+    border-top:2px dashed var(--gold);
+  }
+  .step-num{
+    width:60px;height:60px;
+    border-radius:50%;
+    background:var(--green);
+    color:var(--gold-light);
+    font-family:var(--display);
+    font-size:1.4rem;
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;
+    border:3px solid var(--ink);
+  }
+  .step h3{
+    font-family:var(--display);
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .step p{
+    color:#5a5346;
+    font-size:0.96rem;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--green);}
+  .pricing .section-head h2{color:var(--cream);}
+  .pricing .section-head .tag{color:var(--gold-light);}
+  .price-card{
+    background:var(--cream);
+    max-width:480px;
+    margin:0 auto;
+    border-radius:6px;
+    border:3px solid var(--ink);
+    overflow:hidden;
+    box-shadow:8px 8px 0 var(--ink);
+  }
+  .price-head{
+    background:var(--gold);
+    padding:24px 32px;
+    text-align:center;
+    border-bottom:3px solid var(--ink);
+    position:relative;
+  }
+  .price-badge{
+    position:absolute;
+    top:-14px;
+    right:18px;
+    background:var(--brick);
+    color:var(--cream);
+    font-family:var(--mono);
+    font-style:italic;
+    font-weight:700;
+    font-size:0.85rem;
+    padding:6px 14px;
+    border-radius:20px;
+    border:2px solid var(--ink);
+    transform:rotate(4deg);
+  }
+  .price-was{
+    font-family:var(--mono);
+    font-style:italic;
+    color:var(--green-dark);
+    text-decoration:line-through;
+    opacity:0.65;
+    font-size:1.1rem;
+    margin-bottom:2px;
+  }
+  .price-head .amount{
+    font-family:var(--display);
+    font-size:3rem;
+    color:var(--ink);
+  }
+  .price-head .amount span{font-size:1.2rem;}
+  .price-head .label{
+    font-family:var(--mono);
+    font-style:italic;
+    color:var(--green-dark);
+  }
+  .price-body{padding:32px;}
+  .price-body ul{list-style:none;}
+  .price-body li{
+    padding:10px 0;
+    border-bottom:1px solid var(--sage);
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .price-body li:last-child{border-bottom:none;}
+  .price-body li::before{
+    content:'\2713';
+    color:var(--brick);
+    font-weight:800;
+    flex-shrink:0;
+  }
+  .price-foot{
+    padding:0 32px 32px;
+    text-align:center;
+  }
+  .price-foot a{
+    display:block;
+    background:var(--brick);
+    color:var(--cream);
+    text-align:center;
+    padding:14px;
+    border-radius:3px;
+    font-weight:700;
+    text-decoration:none;
+  }
+  .price-note{
+    text-align:center;
+    color:var(--sage);
+    font-size:0.9rem;
+    margin-top:18px;
+    font-family:var(--mono);
+    font-style:italic;
+  }
+
+  /* ---------- WHO ITS FOR ---------- */
+  .who{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .who-card{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:4px;
+    padding:24px 18px;
+    text-align:center;
+  }
+  .who-card .ico{font-size:2rem;margin-bottom:10px;}
+  .who-card h4{font-family:var(--display);font-size:1rem;color:var(--green);margin-bottom:6px;}
+  .who-card p{font-size:0.88rem;color:#5a5346;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--ink);
+  }
+  .contact .section-head h2{color:var(--cream);}
+  .contact .section-head .tag{color:var(--gold-light);}
+  .contact-box{
+    max-width:560px;
+    margin:0 auto;
+    background:var(--cream);
+    border-radius:6px;
+    padding:36px;
+    border:3px solid var(--gold);
+  }
+  .contact-box p{margin-bottom:20px;color:#5a5346;}
+  .contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .contact-info a{
+    font-weight:700;
+    color:var(--green);
+    text-decoration:none;
+    font-size:1.1rem;
+  }
+  .contact-info span{
+    font-family:var(--mono);
+    font-style:italic;
+    color:#8a8470;
+    font-size:0.88rem;
+  }
+
+  footer{
+    text-align:center;
+    padding:28px;
+    font-family:var(--mono);
+    font-style:italic;
+    color:#8a8470;
+    font-size:0.85rem;
+  }
+
+  @media(max-width:720px){
+    .process{grid-template-columns:1fr;gap:36px;}
+    .step:not(:last-child)::after{display:none;}
+    .hero-ctas{flex-direction:column;align-items:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Open<span>&amp;</span>Built</div>
+  <a href="#contact" class="cta-small">Get a quote</a>
+</nav>
+
+<div class="hero">
+  <div class="awning"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Websites, built by hand &mdash; for businesses on Main Street</div>
+    <h1>Your business deserves<br>a <span class="gold">front window</span><br>online too.</h1>
+    <p class="sub">A clean, working website for your shop, your service, or your studio &mdash; built and launched in days, not months. No templates that look like everyone else's.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Get my free quote</a>
+      <a href="#pricing" class="btn-ghost">See pricing</a>
+    </div>
+  </div>
+  <div class="awning bottom"></div>
+</div>
+
+<div class="trust">
+  <div class="trust-inner">
+    <span>&#9733; Flat-rate pricing, no surprises</span>
+    <span>&#9733; Live in about a week</span>
+    <span>&#9733; You own the site, fully</span>
+  </div>
+</div>
+
+<section id="process">
+  <div class="section-head">
+    <div class="tag">How it works</div>
+    <h2>Three steps to open your doors online</h2>
+  </div>
+  <div class="process">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Tell me about your business</h3>
+      <p>A quick call or message about what you do, what you sell, and what you want visitors to do when they land on your site.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>I build it around you</h3>
+      <p>I design and build your site to match your business &mdash; your name, your photos, your services. You see drafts and give feedback as we go.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>You go live</h3>
+      <p>Your site is published and ready for customers to find you, call you, or visit you. It's yours to keep.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="section-head">
+    <div class="tag">Pricing</div>
+    <h2>One price. Everything included.</h2>
+  </div>
+  <div class="price-card">
+    <div class="price-head">
+      <div class="price-badge">Launch pricing</div>
+      <div class="price-was">$225</div>
+      <div class="amount">$149 <span>flat</span></div>
+      <div class="label">per website &mdash; first 10 clients only</div>
+    </div>
+    <div class="price-body">
+      <ul>
+        <li>Up to 5 pages (home, about, services, gallery, contact)</li>
+        <li>Mobile-friendly design that works on any phone</li>
+        <li>Contact form so customers can reach you directly</li>
+        <li>Built around your business name, colors, and photos</li>
+        <li>One round of revisions included</li>
+      </ul>
+    </div>
+    <div class="price-foot">
+      <a href="#contact">Start my website</a>
+    </div>
+  </div>
+  <div class="price-note">Launch price for early clients while I build out my portfolio &mdash; price goes back up to $225 after the first 10. Hosting typically runs $0&ndash;$15/month, paid directly to the host.</div>
+</section>
+
+<section id="who">
+  <div class="section-head">
+    <div class="tag">Who this is for</div>
+    <h2>If it's a real business, it fits</h2>
+  </div>
+  <div class="who">
+    <div class="who-card">
+      <div class="ico">&#127859;</div>
+      <h4>Restaurants &amp; cafes</h4>
+      <p>Menu, hours, location, online ordering links.</p>
+    </div>
+    <div class="who-card">
+      <div class="ico">&#128296;</div>
+      <h4>Contractors &amp; trades</h4>
+      <p>Services, service area, before/after photos.</p>
+    </div>
+    <div class="who-card">
+      <div class="ico">&#9986;</div>
+      <h4>Salons &amp; studios</h4>
+      <p>Booking links, pricing, portfolio gallery.</p>
+    </div>
+    <div class="who-card">
+      <div class="ico">&#128722;</div>
+      <h4>Shops &amp; retailers</h4>
+      <p>Storefront info, product highlights, hours.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="section-head">
+    <div class="tag">Get started</div>
+    <h2>Let's open your front window</h2>
+  </div>
+  <div class="contact-box">
+    <p>Send a message with your business name and what kind of site you're picturing. I'll reply with next steps and a firm price &mdash; usually within a day.</p>
+    <div class="contact-info">
+      <a href="mailto:openandbuilt@gmail.com">openandbuilt@gmail.com</a>
+      <span>or call/text</span>
+      <a href="tel:+18262089270">(826) 208-9270</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Open&amp;Built &mdash; websites for local businesses, built one at a time.
+</footer>
+
+</body>
+</html>
